@@ -1,13 +1,13 @@
 const constants = {
   /**
    * List item sidebar
-   * Author : NVDuong (05/1/2023)
+   *
    */
   SidebarMenu: [
     {
       text: "My Day",
       classIcon: "icon-overview",
-      path: "/myday",
+      path: "/",
     },
 
     {
@@ -24,7 +24,7 @@ const constants = {
   ],
   /**
    * List item pageSize
-   * Author : NVDuong (05/1/2023)
+   *
    */
   listNavigateNumber: [
     {
@@ -50,7 +50,7 @@ const constants = {
   ],
   /**
    * List item pageSize
-   * Author : NVDuong (05/1/2023)
+   *
    */
   listStatusFilterImport: [
     {
@@ -68,7 +68,7 @@ const constants = {
   ],
   /**
    * Regex
-   * Author : NVDuong (05/1/2023)
+   *
    */
   // regexConstants: {
   // 	EmployeeCode: /^NV-[0-9]{1,17}$/,

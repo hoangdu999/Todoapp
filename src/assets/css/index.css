@@ -19,11 +19,14 @@
 :root {
   --bgr-header : #353480;
   --bgr-menu: rgb(233, 233, 233);
+  --brg-form: rgb(213, 213, 239);
+  --brg-home-title: rgb(57, 57, 65);
   --btn-primary: #2ca01c;
   --btn-hover: #46ac39;
   --btn-active: #3a9c2d;
   --width-column: 84px;
 
+  --color-text : #fff;
   --input-focus: #019160;
   --input-focus-err: #ff4747;
   --border-table: #bbb;
@@ -95,4 +98,7 @@ img {
 }
 .mb-12{
   margin-bottom: 12px;
-} 
+}
+.icon-color{
+  color: #0075c0;
+}

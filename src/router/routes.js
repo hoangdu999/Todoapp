@@ -1,5 +1,6 @@
 import TheHome from "../view/home/TheHome.vue";
-import Register from "../view/register/Register.vue";
+import TheRegister from "../view/register/TheRegister.vue";
+import TheLogin from "../view/login/TheLogin.vue";
 const routes = [
   {
     path: "/",
@@ -8,7 +9,12 @@ const routes = [
 
   {
     path: "/register",
-    component: Register,
+    component: TheRegister,
+  },
+
+  {
+    path: "/login",
+    component: TheLogin,
   },
 ];
 export default routes;
