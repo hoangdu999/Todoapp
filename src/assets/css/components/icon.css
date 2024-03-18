@@ -257,3 +257,13 @@
 	width: 11px;
 	height: 13px;
 }
+.icon-download-template{
+	background: url('../../img/Sprites.64af8f61.svg')no-repeat -707px -361px;
+	width: 11px;
+	height: 13px;
+}
+.icon-download-test{
+	background: url('../../img/Sprites.64af8f61.svg')no-repeat -1008px -480px;
+	width: 11px;
+	height: 13px;
+}

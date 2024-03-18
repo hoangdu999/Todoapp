@@ -5,19 +5,19 @@ const constants = {
    */
   SidebarMenu: [
     {
-      text: "My Day",
+      text: "MYDAY",
       classIcon: "icon-overview",
       path: "/",
     },
 
     {
-      text: "Important",
+      text: "IMPORTANT",
       classIcon: "icon-cash",
       path: "/important",
     },
 
     {
-      text: "calendar",
+      text: "CALENDAR",
       classIcon: "icon-deposits",
       path: "/calendar",
     },

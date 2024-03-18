@@ -10,7 +10,7 @@
             <div class="icon-deposits list-icon "></div>
             <check-box  :disabled="true"
             :checked="false"
-            id="type-customer-2"></check-box>
+            id=""></check-box>
           {{ item }}
           </div>
           <div class="home-list-item-right flex">
