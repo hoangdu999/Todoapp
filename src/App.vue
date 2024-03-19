@@ -2,7 +2,9 @@
   <div>
     <the-header />
     <div class="container flex">
-      <the-sidebar v-if="!shouldHideSidebar" />
+      <div class="sidebar">
+        <the-sidebar v-if="!shouldHideSidebar" />
+      </div>
       <div class="container-main w-100">
         <router-view />
       </div>

@@ -1,11 +1,12 @@
 .home-wrapper{
-  margin:0 20px;
+  margin: 0 20px 0px 220px;
 }
 .home-tile{
   background-color: var(--color-text);
   height: 90px;
   align-items: center;
   padding: 10px;
+  justify-content: space-between;
 }
 .home-tile-text{
   font-size: 200%;
@@ -22,4 +23,23 @@
   align-items: center;
   padding: 20px;
   justify-content: space-between;
+  border-radius:10px;
+}
+.home-list-item-content-name{
+  font-size: 150%;
+  text-align: center;
+}
+.icon-edit,
+.icon-delete,
+.icon-unimportant,
+.icon-important,
+.icon-add
+{
+  cursor: pointer;
+}
+.icon-edit{
+  margin-right: 20px;
+}
+.icon-add{
+  margin-right: 10px;
 }

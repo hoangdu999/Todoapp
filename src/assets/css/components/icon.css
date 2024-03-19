@@ -113,10 +113,9 @@
 	width: 14px;
 	height: 8px;
 	cursor: pointer;
-
 }
 .icon-notification{
-    background: url('../../img/Sprites.64af8f61.svg') no-repeat -257px -32px;
+  background: url('../../img/Sprites.64af8f61.svg') no-repeat -257px -32px;
 	width: 22px;
 	height: 25px;
 	cursor: pointer;
@@ -266,4 +265,29 @@
 	background: url('../../img/Sprites.64af8f61.svg')no-repeat -1008px -480px;
 	width: 11px;
 	height: 13px;
+}
+.icon-delete{
+	background: url('../../img/Sprites.64af8f61.svg')no-repeat -464px -312px;
+	width: 15px;
+	height: 19px;
+}
+.icon-edit{
+	background: url('../../img/Sprites.64af8f61.svg')no-repeat -414px -310px;
+	width: 20px;
+	height: 25px;
+}
+.icon-important{
+	background: url('../../img/Sprites.64af8f61.svg')no-repeat -1088px -309px;
+	width: 20px;
+	height: 25px;
+}
+.icon-unimportant{
+	background: url('../../img/Sprites.64af8f61.svg')no-repeat -1136px -309px;
+	width: 20px;
+	height: 25px;
+}
+.icon-add{
+	background: url('../../img/Sprites.64af8f61.svg')no-repeat -1546px -144px;
+	width: 26px;
+	height: 25px;
 }

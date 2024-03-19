@@ -1,14 +1,15 @@
 <template>
   <div class="sidebar-menu" :class="toggleSidebar ? '' : 'm-menu-collapse'">
-    <div class="sidebar__header">
+    <div class="sidebar__header flex" >
       <div class="icon-bar"   @click="toggleSidebarChange"></div>
-      <div class="sidebar__header-avt">
+      <div class="sidebar__header-avt flex">
         <img
           src="../../assets/img/avt.png"
           alt="logo"
         />
-      </div>
       <p>ToDoApp</p>
+      </div>
+      <div class="icon-notification" data-tip="Tính năng chưa phát triển"></div>
     </div>
     <div class="m-menu">
       <div class="m-menu__list">
