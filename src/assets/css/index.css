@@ -90,6 +90,9 @@ img {
 .mt-8{
   margin-top: 8px;
 }
+.mt-10{
+  margin-top: 10px;
+}
 .mt-16{
   margin-top: 16px;
 }
@@ -101,4 +104,7 @@ img {
 }
 .icon-color{
   color: #0075c0;
+}
+.text-bold{
+  font-weight: bold;
 }

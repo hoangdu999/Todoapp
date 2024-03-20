@@ -83,6 +83,6 @@
 {
   display: none;
 }
-.sidebar-menu.m-menu-collapse ~ .m-content{
+/* .sidebar-menu.m-menu-collapse ~ .m-content{
   width: calc(100% - var(--with-menu-collapse));
-}
+} */

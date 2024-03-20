@@ -6,7 +6,9 @@
         <button v-else-if="type == 'primary2'" class="ms-button-primary2" @click="onClick">
             <slot/>
         </button>
-        <button v-else class="ms-button" :style="{backgroundColor : backgroundColor , color : color, border : `1px solid ${colorBorder}`,height: HeightButton  }" @click="onClick">
+        <button v-else class="ms-button" :style="{backgroundColor : backgroundColor , color : color, border : `1px solid ${colorBorder}`,height: HeightButton  }" @click="onClick"
+        @mouseover="onMouseOver"
+        @mouseleave="onMouseLeave">
             <slot/>
         </button>
     </div>
@@ -29,6 +31,14 @@ export default {
   methods:{
     onClick(e){
         this.$emit("click",e);
+    },
+    onMouseOver() {
+        // Thực hiện các hành động khi hover vào button
+        console.log("Mouse over");
+    },
+    onMouseLeave() {
+        // Thực hiện các hành động khi rời chuột khỏi button
+        console.log("Mouse leave");
     }
   }
 };
@@ -41,5 +51,6 @@ export default {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+   /* background: radial-gradient(black, transparent);*/
 }
 </style>

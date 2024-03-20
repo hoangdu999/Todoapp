@@ -1,5 +1,6 @@
 .home-wrapper{
   margin: 0 20px 0px 220px;
+  transition: 0.3s;
 }
 .home-tile{
   background-color: var(--color-text);
@@ -42,4 +43,17 @@
 }
 .icon-add{
   margin-right: 10px;
+}
+.m-menu-change{
+  margin: 0 20px 0px 75px;
+  transition: 0.3s;
+}
+.form-content > * {
+  margin-bottom: 15px;
+}
+.btn-add:hover{
+  background: var(--bgr-header);
+}
+.ms-button:hover {
+  background: var(--bgr-header);
 }

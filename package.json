@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vue/cli-service": "^5.0.8",
     "axios": "^1.6.8",
     "query-string": "^9.0.0",
     "vue": "^3.4.21",
@@ -16,6 +17,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
+    "dotenv": "^16.4.5",
     "vite": "^5.1.6"
   }
 }

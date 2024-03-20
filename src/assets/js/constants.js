@@ -12,7 +12,7 @@ const constants = {
 
     {
       text: "IMPORTANT",
-      classIcon: "icon-cash",
+      classIcon: "icon-unimportant",
       path: "/important",
     },
 
