@@ -4,7 +4,7 @@ import axiosClient from "./axiosClient";
  */
 class baseApi {
   constructor(table) {
-    this.baseUrl = table + "/";
+    this.baseUrl = table;
   }
   baseUrl = "";
   /**
@@ -12,7 +12,7 @@ class baseApi {
    */
   getByFilter = (params) => {
     try {
-      return axiosClient.post(this.baseUrl + "filter", params);
+      return axiosClient.post(this.baseUrl + "/filter", params);
     } catch (error) {
       console.log(error);
     }
@@ -22,7 +22,7 @@ class baseApi {
    */
   getByFilterDetail = (params) => {
     try {
-      return axiosClient.post(this.baseUrl + "filter-detail", params);
+      return axiosClient.post(this.baseUrl + "/filter-detail", params);
     } catch (error) {
       console.log(error);
     }
@@ -49,7 +49,7 @@ class baseApi {
    */
   getByIdDetail = (id) => {
     try {
-      return axiosClient.get(this.baseUrl + "detail/" + id);
+      return axiosClient.get(this.baseUrl + "/detail/" + id);
     } catch (error) {
       console.log(error);
     }
@@ -59,7 +59,7 @@ class baseApi {
    */
   getByIdDetail = (id) => {
     try {
-      return axiosClient.get(this.baseUrl + "Detail/" + id);
+      return axiosClient.get(this.baseUrl + "/Detail/" + id);
     } catch (error) {
       console.log(error);
     }
@@ -89,7 +89,7 @@ class baseApi {
    */
   remove = (ids) => {
     try {
-      return axiosClient.post(this.baseUrl + "Delete-Records", ids);
+      return axiosClient.delete(this.baseUrl + "?id=" + ids);
     } catch (error) {
       console.log(error);
     }

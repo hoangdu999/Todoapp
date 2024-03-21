@@ -17,22 +17,22 @@
               @click="changeIcon($event, item)"
             ></div>
             <check-box
-              :disabled="true"
+              :disabled="false"
               :checked="false"
-              :id="item.name"
+              :id="item.taskId"
             ></check-box>
           </div>
           <div class="home-list-item-content">
             <div class="home-list-item-content-name">
-              {{ item.name }}
+              {{ item.taskName }}
             </div>
             <div class="home-list-item-content-des">
-              {{ item.description }}, Deline: {{ item.deline }}
+              {{ item.description }}, Deadline: {{ item.deadline }}
             </div>
           </div>
           <div class="home-list-item-right flex">
             <div class="icon-edit" @click="ShowFromEditMethos" ></div>
-            <div class="icon-delete" @click="ShowMessDelete"></div>
+            <div class="icon-delete" @click="ShowMessDelete(item.taskId,index)"></div>
           </div>
         </li>
       </div>
@@ -42,9 +42,9 @@
         Thêm Công Việc
       </template>
       <div class="form-content">    
-        <ms-input v-model="Stacks.TaskName" textField="Name" />
-        <m-textarea v-model="Stacks.Description" title="Description" heighttext="50"/>
-        <ms-input v-model="Stacks.deline" textField="Deline" type="date" />
+        <ms-input v-model="Task.TaskName" textField="Name" />
+        <m-textarea v-model="Task.Description" title="Description" heighttext="50"/>
+        <ms-input v-model="Task.Deadline" textField="Deadline" type="date" />
         <div class="form-create-priority">
           <div class="form-create-priority-title text-bold">Priority</div>
           <div class="form-create-priority-radio flex mt-10">
@@ -53,7 +53,7 @@
               textField="Unimportant"
               nameInput="Priority"
               id="Unimportant"
-              :checked="Stacks.Priority == 'Unimportant'"
+              :checked="Task.Priority == 'Unimportant'"
               @change="changPriority"
             />
             <m-radio-button
@@ -61,14 +61,14 @@
               textField="Important"
               nameInput="Priority"
               @change="changPriority"
-              :checked="Stacks.Priority == 'Priority'"
+              :checked="Task.Priority == 'Priority'"
               id="Important"
             />
           </div>
         </div>
       </div>
       <template #footer>
-        <ms-button @click="InsertStacks" class="w-100">Tạo</ms-button>
+        <ms-button @click="InsertTask" class="w-100">Tạo</ms-button>
       </template>
     </m-pop-up>
     <m-pop-up-warn :isShow="IsShowMessDelete" @close-pop-up="IsShowMessDelete=false">
@@ -89,9 +89,9 @@
     <m-pop-up :isShow="IsShowFormEdit" @close-pop-up="IsShowFormEdit=false">
       <template #header>Chỉnh sửa công việc</template>
       <div class="form-content">    
-        <ms-input v-model="Stacks.TaskName" textField="Name" />
-        <m-textarea v-model="Stacks.Description" title="Description" heighttext="50"/>
-        <ms-input v-model="Stacks.deline" textField="Deline" type="date" />
+        <ms-input v-model="Task.TaskName" textField="Name" />
+        <m-textarea v-model="Task.Description" title="Description" heighttext="50"/>
+        <ms-input v-model="Task.Deadline" textField="Deadline" type="date" />
         <div class="form-edit-priority">
           <div class="form-edit-priority-title text-bold">Priority</div>
           <div class="form-edit-priority-radio flex mt-10">
@@ -100,7 +100,7 @@
               textField="Unimportant"
               nameInput="Priority"
               id="Unimportant"
-              :checked="Stacks.Priority == 'Unimportant'"
+              :checked="Task.Priority == 'Unimportant'"
               @change="changPriority"
             />
             <m-radio-button
@@ -108,14 +108,14 @@
               textField="Important"
               nameInput="Priority"
               @change="changPriority"
-              :checked="Stacks.Priority == 'Priority'"
+              :checked="Task.Priority == 'Priority'"
               id="Important"
             />
           </div>
         </div>
       </div>
       <template #footer>
-        <ms-button @click="InsertStacks" class="w-100">Cập nhật</ms-button>
+        <ms-button @click="InsertTask" class="w-100">Cập nhật</ms-button>
       </template>
     </m-pop-up>
   </div>
@@ -148,57 +148,66 @@ export default {
       IsShowMessDelete:false,
       IstoggleSidebar : true,
       IsShowFromCreate: false,
-      Stacks : {
-        Priority : 'Unimportant'
+      taskFocus : {},
+      Task : {
+        Priority : 'Unimportant',
+        UserId : '3fa85f64-5717-4562-b3fc-2c963f66afa6'
       },
       ListAct: [
         {
           name: "Meeting",
           description: "Đi họp với các sếp",
-          deline: "3/19/2024",
+          Deadline: "3/19/2024",
           priority: false,
           status: "Hoàn Thành",
         },
         {
           name: "Learn",
           description: "Đi học với các sếp",
-          deline: "3/19/2024",
+          Deadline: "3/19/2024",
           priority: false,
           status: "Chưa Hoàn Thành",
         },
         {
           name: "Shopping",
           description: "Đi mua hàng với các sếp",
-          deline: "3/19/2024",
+          Deadline: "3/19/2024",
           priority: false,
           status: "Hoàn Thành",
         },
         {
           name: "Meeting",
           description: "Đi họp với các sếp",
-          deline: "3/19/2024",
+          Deadline: "3/19/2024",
           priority: false,
           status: "Hoàn Thành",
         },
         {
           name: "Meeting",
           description: "Đi họp với các sếp",
-          deline: "3/19/2024",
+          Deadline: "3/19/2024",
           priority: false,
           status: "Hoàn Thành",
         },
         {
           name: "Meeting",
           description: "Đi họp với các sếp",
-          deline: "3/19/2024",
+          Deadline: "3/19/2024",
           priority: false,
           status: "Hoàn Thành",
         },
       ],
     };
   },
+  async created (){
+      const res = await new baseApi("Task").getAll();
+      if(res){
+        this.ListAct = res;
+      }
+  },
+  mounted() {
 
-  mounted() {},
+  },
 
   methods: {
     ShowFromEditMethos(){
@@ -206,27 +215,41 @@ export default {
     },
     ShowFrom() {
       this.IsShowFromCreate = true;
+      this.Task = {
+        Priority : 'Unimportant',
+        UserId : '3fa85f64-5717-4562s-b3fc-2c963f66afa6'
+      }
     },
-    ShowMessDelete(){
+    async deleteStack(){
+        await new baseApi("Task").remove(this.taskFocus.taskid);
+        this.ListAct.splice(this.taskFocus.index, 1);
+        this.IsShowMessDelete = false;
+    },
+    ShowMessDelete(id,index){
+      this.taskFocus = {
+        taskid  : id,
+        index : index
+      };
       this.IsShowMessDelete = true;
-      console.log(this.IsShowMessDelete);
     },
-    async InsertStacks(){
+    async InsertTask(){
       try{
         // Validate
 
         // Gán 1 số trường mặc định
 
         // Xử lý call api
-        const res = await new baseApi("MyStacks").create(this.Stacks);
-        console.log(res);
+        const res = await new baseApi("Task").create(this.Task);
+        this.IsShowFromCreate = false;
+        this.ListAct = [res,...this.ListAct];
+        console.log(this.IsShowFromCreate);
       }
       catch(err){
         console.log(err);
       }
     },
     changPriority(id){
-      this.Stacks.Priority = id;
+      this.Task.Priority = id;
     },
     changeIcon(event, item) {
       var icon = event.target;
@@ -244,7 +267,7 @@ export default {
   watch: {
     "$state.toggleSidebar": function () {
       this.IstoggleSidebar = this.$state.toggleSidebar;
-      console.log(this.Stacks);
+      console.log(this.Task);
     },
   }
 };

@@ -5,7 +5,7 @@ import queryString from "query-string";
  * Config axios
  */
 const axiosClient = axios.create({
-  baseURL: "https://localhost:7078/v1",
+  baseURL: "https://localhost:7143",
   headers: {
     "content-type": "application/json",
   },
@@ -16,24 +16,25 @@ const axiosClient = axios.create({
 });
 
 //  Xử lý token
-axiosClient.interceptors.request.use(
-  function (config) {
-    const token = localStorage.getItem("token");
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
-  },
-  function (error) {
-    return Promise.reject(error);
-  }
-);
+// axiosClient.interceptors.request.use(
+//   function (config) {
+//     const token = localStorage.getItem("token");
+//     if (token) {
+//       config.headers.Authorization = `Bearer ${token}`;
+//     }
+//     return config;
+//   },
+//   function (error) {
+//     return Promise.reject(error);
+//   }
+// );
 
 /**
  * Config response
  */
 axiosClient.interceptors.response.use(
   (response) => {
+    console.log(response);
     if (response && response.data) {
       return response.data;
     }
