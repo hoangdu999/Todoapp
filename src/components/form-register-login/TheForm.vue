@@ -5,11 +5,13 @@
         <img src="../../assets/img/form/form.png" alt="">
       </div> -->
       <div class="form-main">
+        <div  class="form-title">
+          <slot name="title"></slot>
+        </div>
         <ms-input
           :marginTopInput="18"
           :height="40"
           :fontSizeTile="24"
-          :title= title
           placeholder="Số điện thoại"
         ></ms-input>
         <ms-input
@@ -17,7 +19,7 @@
         :fontSizeTile="24"
         placeholder="Mật Khẩu"
       ></ms-input>
-        <ms-button backgroundColor="#353480" :marginTop="32" HeightButton="40px" ><slot/>
+        <ms-button backgroundColor="#353480" :marginTop="32" height="40px" width="100%"><slot/>
         </ms-button>
         <div class="form-hr mt-32">
           <hr />
@@ -105,6 +107,10 @@ export default {
 }
 .text-login {
   text-align: center;
+}
+.form-title{
+  font-size: 180%;
+  margin-bottom: 20px;
 }
 
 </style>

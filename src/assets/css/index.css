@@ -21,8 +21,8 @@
   --bgr-menu: rgb(233, 233, 233);
   --brg-form: rgb(213, 213, 239);
   --brg-home-title: rgb(57, 57, 65);
-  --btn-primary: #2ca01c;
-  --btn-hover: #46ac39;
+  --btn-primary: #5d5ba4;;
+  --btn-hover: #474691;;
   --btn-active: #3a9c2d;
   --width-column: 84px;
 
@@ -52,6 +52,9 @@ body {
   font-size: 13px;
   width: 100%;
   position: relative;
+}
+a{
+  text-decoration: none;
 }
 li {
   list-style-type: none;
@@ -102,9 +105,22 @@ img {
 .mb-12{
   margin-bottom: 12px;
 }
+.mr-10{
+  margin-right: 12px;
+}
+.hidden {
+  display: none;
+}
+.fl-block{
+  display: block;
+
+}
 .icon-color{
   color: #0075c0;
 }
 .text-bold{
   font-weight: bold;
+}
+.transition{
+  transition: all 1;
 }

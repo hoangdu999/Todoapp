@@ -31,8 +31,8 @@
             </div>
           </div>
           <div class="home-list-item-right flex">
-            <div class="icon-edit"></div>
-            <div class="icon-delete"></div>
+            <div class="icon-edit" @click="ShowFromEditMethos" ></div>
+            <div class="icon-delete" @click="ShowMessDelete"></div>
           </div>
         </li>
       </div>
@@ -42,9 +42,9 @@
         Thêm Công Việc
       </template>
       <div class="form-content">    
-        <ms-input v-model="Stacks.TaskName" title="Name" />
+        <ms-input v-model="Stacks.TaskName" textField="Name" />
         <m-textarea v-model="Stacks.Description" title="Description" heighttext="50"/>
-        <ms-input v-model="Stacks.deline" title="Deline" type="date" />
+        <ms-input v-model="Stacks.deline" textField="Deline" type="date" />
         <div class="form-create-priority">
           <div class="form-create-priority-title text-bold">Priority</div>
           <div class="form-create-priority-radio flex mt-10">
@@ -67,12 +67,57 @@
           </div>
         </div>
       </div>
-      
       <template #footer>
-        <ms-button @click="InsertStacks" backgroundColor="var(--bgr-menu)">Tạo</ms-button>
+        <ms-button @click="InsertStacks" class="w-100">Tạo</ms-button>
       </template>
     </m-pop-up>
-    <m-pop-up-warn ></m-pop-up-warn>
+    <m-pop-up-warn :isShow="IsShowMessDelete" @close-pop-up="IsShowMessDelete=false">
+      <template #content>
+        <p class="warning__delete-content w-100">Xác Nhận Xóa Công Việc !</p>
+      </template>
+      <template #footer>
+        <div class="warning__delete-btn flex">
+          <div @click="IsShowMessDelete = false" class="mr-10">
+            <ms-button typeBtn="close">Không</ms-button>  
+          </div>
+          <div @click="deleteStack()">
+            <ms-button>Có</ms-button>
+          </div>
+        </div>
+      </template>
+    </m-pop-up-warn>
+    <m-pop-up :isShow="IsShowFormEdit" @close-pop-up="IsShowFormEdit=false">
+      <template #header>Chỉnh sửa công việc</template>
+      <div class="form-content">    
+        <ms-input v-model="Stacks.TaskName" textField="Name" />
+        <m-textarea v-model="Stacks.Description" title="Description" heighttext="50"/>
+        <ms-input v-model="Stacks.deline" textField="Deline" type="date" />
+        <div class="form-edit-priority">
+          <div class="form-edit-priority-title text-bold">Priority</div>
+          <div class="form-edit-priority-radio flex mt-10">
+            <m-radio-button
+              margin="0 0 0 5px"
+              textField="Unimportant"
+              nameInput="Priority"
+              id="Unimportant"
+              :checked="Stacks.Priority == 'Unimportant'"
+              @change="changPriority"
+            />
+            <m-radio-button
+              margin="0 0 0 5px"
+              textField="Important"
+              nameInput="Priority"
+              @change="changPriority"
+              :checked="Stacks.Priority == 'Priority'"
+              id="Important"
+            />
+          </div>
+        </div>
+      </div>
+      <template #footer>
+        <ms-button @click="InsertStacks" class="w-100">Cập nhật</ms-button>
+      </template>
+    </m-pop-up>
   </div>
 </template>
 <script>
@@ -82,6 +127,7 @@ import MsButton from '../../components/button/MsButton.vue';
 import CheckBox from "../../components/checkbox/MCheckBox.vue";
 import MsInput from '../../components/input/Input.vue';
 import MPopUp from "../../components/pop-up/MPopUp.vue";
+import MPopUpWarn from '../../components/pop-up/MPopUpWarn.vue';
 import MRadioButton from '../../components/radio-button/MRadioButton.vue';
 import MTextarea from '../../components/textarea/MTextarea.vue';
 export default {
@@ -92,11 +138,14 @@ export default {
     MsInput,
     MsButton,
     MRadioButton,
-    MTextarea
+    MTextarea,
+    MPopUpWarn
   },
   data() {
     return {
-      EnumPriority: EnumTodo.Priority, // Enum giới tính
+      EnumPriority: EnumTodo.Priority,  
+      IsShowFormEdit:false,   
+      IsShowMessDelete:false,
       IstoggleSidebar : true,
       IsShowFromCreate: false,
       Stacks : {
@@ -152,8 +201,15 @@ export default {
   mounted() {},
 
   methods: {
+    ShowFromEditMethos(){
+      this.IsShowFormEdit = true;
+    },
     ShowFrom() {
       this.IsShowFromCreate = true;
+    },
+    ShowMessDelete(){
+      this.IsShowMessDelete = true;
+      console.log(this.IsShowMessDelete);
     },
     async InsertStacks(){
       try{

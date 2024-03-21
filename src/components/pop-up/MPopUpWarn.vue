@@ -4,11 +4,11 @@
       <header class="m-pop-up__header">
         <div class="pop-up__title-default">{{titleName}}</div>
       </header>
-      <main class="m-pop-up__main">
-        <div class="warning__delete-content">
-          <div class="warning__delete-icon" :class="iconTitleClass"></div>
+      <main class="m-pop-up__main w-100 flex">
+        <div class="warning__delete-icon" :class="iconTitleClass"></div>
+        <div class="warning__delete-content flex w-100">
           <div class="warning__delete-content-text">
-            <slot />
+            <slot name="content"/>
           </div>
         </div>
       </main>

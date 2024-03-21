@@ -38,3 +38,8 @@
     right: 24px;
     cursor: pointer;
 }
+.warning__delete-content{
+    align-items: center;
+    justify-content: center;
+}
+

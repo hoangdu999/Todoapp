@@ -57,3 +57,6 @@
 .ms-button:hover {
   background: var(--bgr-header);
 }
+.warning__delete-btn{
+  justify-content: end;
+}

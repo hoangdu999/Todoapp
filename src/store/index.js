@@ -10,6 +10,7 @@ const state = reactive({
    * Biến to nhỏ Sidebar
    */
   toggleSidebar: true,
+
   /**
    * Hàm hiển thị toast message
    */

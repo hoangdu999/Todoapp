@@ -1,7 +1,8 @@
 <template>
   <div>
-    <the-form :title="'Đăng Ký'">Đăng Ký
-      <template #text>Bạn đã có tài khoản? <span>Đăng nhập</span>
+    <the-form>Đăng Ký
+      <template #title>Đăng Ký</template>
+      <template #text>Bạn đã có tài khoản?<a href="/login" class="sp-login"><span>Đăng Nhập</span></a>
       </template>
     </the-form>
   </div>
@@ -28,7 +29,10 @@ export default {
 };
 </script>
 <style scoped>
-span{
+.sp-login{
   color: var(--brg-form);
+}
+.sp-login span:hover{
+  color: var(--bgr-header);
 }
 </style>

@@ -1,7 +1,8 @@
 <template>
   <div>
-    <the-form :title="'Đăng Nhập'">Đăng Nhập
-      <template #text>Bạn mới biết đến TodoApp? <span>Đăng ký</span>
+    <the-form>Đăng Nhập
+      <template #title>Đăng Nhập</template>
+      <template #text>Bạn mới biết đến TodoApp? <a href="/register" class="sp-register"><span>Đăng ký</span></a>
       </template>
     </the-form>
   </div>
@@ -28,7 +29,10 @@ export default {
 };
 </script>
 <style scoped>
-span{
+.sp-register span{
   color: var(--brg-form);
+}
+.sp-register span:hover{
+  color: var(--bgr-header);
 }
 </style>

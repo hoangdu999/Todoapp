@@ -176,7 +176,7 @@
     font-style: italic;
 }
 .m-input:focus{
-    border: 1px solid var(--input-hover);
+    border: 1px solid var(--bgr-header);
 }
 .m-input-icon{
     position: absolute;
@@ -218,7 +218,7 @@
 }
 .m-input-list-item:hover{
     background-color: #ebedf0;
-    color:#2ff408;
+    color:#2ff408 ;
 }
 .m-input-list-item:nth-last-child(1):hover{
     border-radius: 0 0 4px 4px ;
