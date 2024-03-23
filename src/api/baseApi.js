@@ -77,9 +77,9 @@ class baseApi {
   /**
    * Sửa dữ liệu
    */
-  update = (id, newItem) => {
+  update = (newItem) => {
     try {
-      return axiosClient.put(this.baseUrl + id, newItem);
+      return axiosClient.put(this.baseUrl, newItem);
     } catch (error) {
       console.log(error);
     }
@@ -95,11 +95,18 @@ class baseApi {
     }
   };
   /**
-   * Khóa
+   * UpDate Status
    */
-  lockup = (ids) => {
+  updateStatus = (ids) => {
     try {
-      return axiosClient.post(this.baseUrl + "Lock-Up", ids);
+      return axiosClient.put(this.baseUrl + "/Update-Status?id=" + ids);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  updatePriority = (ids) => {
+    try {
+      return axiosClient.put(this.baseUrl + "/Update-Priority?id=" + ids);
     } catch (error) {
       console.log(error);
     }

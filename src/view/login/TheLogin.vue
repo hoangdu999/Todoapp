@@ -1,7 +1,7 @@
 <template>
   <div>
     <the-form>Đăng Nhập
-      <template #title>Đăng Nhập</template>
+      <template #title> Đăng Nhập</template>
       <template #text>Bạn mới biết đến TodoApp? <a href="/register" class="sp-register"><span>Đăng ký</span></a>
       </template>
     </the-form>

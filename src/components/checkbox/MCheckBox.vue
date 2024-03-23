@@ -1,5 +1,5 @@
 <template>
-  <input :disabled ="disabled" type="checkbox" name="" :id="id" class="m-input-checkbox" :checked="checked" @change="selectedCheckBox()" />
+  <input :disabled ="disabled" type="checkbox" v-bind="$attrs" name="" :id="id" class="m-input-checkbox" :checked="checked" @change="selectedCheckBox()" />
   <label :for="id" class="m-checkbox-lable"  ><span></span></label>
 </template>
 <script>
